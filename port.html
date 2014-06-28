@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Tools</title>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+
+<script type="text/javascript">
+function  decode() {
+
+var hex = document.getElementById("input").value;
+    var str = '';
+    for (var i = 0; i < hex.length; i += 2)
+        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+    document.getElementById("output").value = str;
+   }
+    </script>
+
+</head>
+<body>
+
+  <div class="container">
+
+<br><br><div class="input-group">
+  <input id="input" type="text" class="form-control" placeholder="Input">
+</div>
+<br><br><div class="input-group">
+  <input id="output" type="text" class="form-control">
+</div>
+
+    <br><br><button type="button" class="btn btn-default btn-lg"  onClick="decode()">Decode</button>
+  </div>
+
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
