@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Online Tools</title>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  <script src="//code.jquery.com/jquery.js"></script>
+
+<style>
+body {
+  padding-top: 30px;
+}
+</style>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -16,33 +25,72 @@
 </script>
 
 <script>
-function  decode() {
-
-var hex = document.getElementById("input").value;
-    var str = '';
-    for (var i = 0; i < hex.length; i += 2)
-        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
-    document.getElementById("output").value = str;
-   }
+$(document).ready(function() {
+  $('i').hide();
+  $(function() {
+    $('form').submit(function(e) {
+      e.preventDefault();
+      var actionurl = e.currentTarget.action;
+      var formData = {
+        'address': $('#address').val(),
+        'port': $('#port').val()
+      };
+      $('#result').val('');
+      $('i').show();
+      $('button').prop('disabled', true);
+      $.ajax({
+        url: actionurl,
+        type: 'post',
+        dataType: 'json',
+        data: formData,
+        success: function(data) {
+          if (data.open) {
+            $('#result').val('Port is open');
+          } else  {
+            $('#result').val('Port is closed');
+          }
+          $('i').hide();
+          $('button').removeAttr('disabled');
+        }
+      });
+    });
+  });
+});
 </script>
 
 </head>
 <body>
-
+      
   <div class="container">
-
-<br><br><div class="input-group">
-  <input id="input" type="text" class="form-control" placeholder="Input">
-</div>
-<br><br><div class="input-group">
-  <input id="output" type="text" class="form-control">
-</div>
-
-    <br><br><button type="button" class="btn btn-default btn-lg"  onClick="decode()">Decode</button>
+    <div class="row">
+      <div class="col-md-12"><h1 class="text-center">Port Check</h1></div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+            
+        <form action="/port.jsp">
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" value="127.0.0.1">
+          </div>
+          <div class="form-group">
+            <label for="port">Port</label>
+            <input type="number" class="form-control" id="port" value="80">
+          </div>
+          <div class="form-group">
+            <label for="result">Result</label>
+            <input type="text" class="form-control" id="result">
+          </div>
+          <br>
+          <button type="submit" class="btn btn-default btn-lg center-block">
+            <i class="fa fa-cog fa-spin"></i> Check
+          </button>
+        </form>
+      </div>
+    </div>
+    <br>
   </div>
-
-  <script src="//code.jquery.com/jquery.js"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>
