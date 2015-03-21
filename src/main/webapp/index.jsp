@@ -60,7 +60,7 @@ Description from meta tag or text for <%= title %>.
 %>
 
         <p align="center">Stolen from <a href="https://news.ycombinator.com/">Hacker News</a></p>
-        <p align="center"><a href="/hex.html">hex</a> | <a href="/html.html">html</a> | <a href="#">port</a></p>
+        <p align="center"><a href="/hex.html">hex</a> | <a href="/html.html">html</a> | <a href="/port.html">port</a></p>
       </div>
     </div>
   </div>
