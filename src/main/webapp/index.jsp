@@ -38,9 +38,9 @@ for (Element e : es) {
 %>
 
 <h4><a href="<%= value %>"><%= title %></a></h4>
-<p>
+<!--<p>
 Description from meta tag or text for <%= title %>.
-</p>
+</p>-->
 <hr>
 
 <%
