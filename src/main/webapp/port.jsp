@@ -1,10 +1,31 @@
-<%@ page import="org.apache.http.client.fluent.Form, org.apache.http.client.fluent.Request" %>
+
+
+<%@ page import="java.io.*, java.net.*" %>
 
 <%
 
-boolean open = Request.Post("http://ports.yougetsignal.com/check-port.php")
-    .bodyForm(Form.form().add("remoteAddress", request.getParameter("address")).add("portNumber", request.getParameter("port")).build())
-    .execute().returnContent().asString().contains("is open");
+URL url = new URL("http://ports.yougetsignal.com/check-port.php");
+HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+conn.setRequestMethod("POST");
+conn.setDoInput(true);
+conn.setDoOutput(true);
+conn.setRequestProperty("User-Agent", "Apache-HttpClient/1.0.0 (java 1.5)");
+
+BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
+writer.write("remoteAddress=" +request.getParameter("address") + "&portNumber=" + request.getParameter("port"));
+writer.close();
+
+conn.connect();
+
+boolean open = false;
+
+if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
+    BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+    if (in.readLine().contains("open")) {
+        open = true;
+    }
+    in.close();
+}
 
 %>
 
