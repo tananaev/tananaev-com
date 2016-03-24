@@ -6,13 +6,23 @@
     <jsp-file>/hex.jsp</jsp-file>
   </servlet>
 
+  <servlet>
+    <servlet-name>port</servlet-name>
+    <jsp-file>/port.jsp</jsp-file>
+  </servlet>
+
   <servlet-mapping>
     <servlet-name>hex</servlet-name>
     <url-pattern>/hex.html</url-pattern>
   </servlet-mapping>
 
+  <servlet-mapping>
+    <servlet-name>port</servlet-name>
+    <url-pattern>/port.html</url-pattern>
+  </servlet-mapping>
+
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
   </welcome-file-list>
 
 </web-app>

@@ -9,7 +9,7 @@
     <artifactId>tananaev-com</artifactId>
 
     <properties>
-        <appengine.app.version>1</appengine.app.version>
+        <appengine.app.version>2</appengine.app.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -22,7 +22,7 @@
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-1.0-sdk</artifactId>
-            <version>1.9.18</version>
+            <version>1.9.34</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
