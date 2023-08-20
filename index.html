@@ -3,23 +3,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Share+Tech+Mono">
+    <style>
+      body {
+        padding: 10px;
+        font-family: 'Share Tech Mono';
+        font-size: 1em;
+        background: #282828;
+        color: #00ff33;
+        text-shadow: 0 0 5px #00ff33;
+      }
+      a:link, a:visited, a:active {
+        color: #00ff33;
+      }
+      a:hover {
+        color: #00ff33;
+      }
+      #cursor {
+        animation: blink 0.8s infinite;
+      }
+      @keyframes blink {
+        0% { background: transparent }
+        50% { background: #00ff33 }
+        100% { background: transparent }
+      }
+    </style>
   <title>Anton Tananaev</title>
   <style>
-    html { 
-      background: url(background.jpg) no-repeat center center fixed; 
-      background-size: cover;
-    }
-    a.fullscreen {
-      display: block;
-      position: absolute;
-      width: 100vw;
-      height: 100vh;
-      top: 0;
-      left: 0;
-    }
   </style>
 </head>
 <body>
-  <a href="https://github.com/tananaev/" class="fullscreen"></a>
+bash$ whoami<br/>
+Anton Tananaev<br/>
+bash$ ls<br/>
+total 4<br/>
+-r--r--r-- 1 root 10 Apr 08 <a href="https://github.com/tananaev">github</a><br/>
+-r--r--r-- 1 root 06 Mar 12 <a href="https://play.google.com/store/apps/developer?id=Anton+Tananaev">play_store</a><br/>
+-r--r--r-- 1 root 10 Jul 08 <a href="https://apps.apple.com/us/developer/anton-tananaev/id843156982">app_store</a><br/>
+-r--r--r-- 1 root 05 May 08 <a href="https://www.linkedin.com/in/tananaev">linkedin</a><br/>
+bash$&nbsp;<span id="cursor">&nbsp;</span>
 </body>
 </html>
+
