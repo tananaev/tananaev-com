@@ -4,74 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anton Tananaev</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap">
   <style>
     html { 
       background: url(background.jpg) no-repeat center center fixed; 
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
       background-size: cover;
-      min-height: 100%;
-      background-color: #232939;
     }
-    body {
-      font-family: 'Sacramento', cursive;
-      text-align: center;
-    }
-    h1 {
-      color: white;
-      line-height: 75%;
-      font-size: 4em;
-    }
-    .glow {
-      text-shadow: 0 0 10px #99a4ba;
-    }
-    div {
+    a.fullscreen {
+      display: block;
       position: absolute;
-      top: 45%;
-      left: 50%;
-      margin-right: -50%;
-      transform: translate(-50%, -50%);
-    }
-    a:link, a:visited, a:active {
-      color: #393c4b;
-    }
-    a:hover {
-      color: #f8af00;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
     }
   </style>
-  <script src="https://kit.fontawesome.com/ef81e435e7.js" crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XDK4FPLJG4"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XDK4FPLJG4');
-  </script>
 </head>
 <body>
-  <div>
-    <h1 class="glow">Anton</h1>
-    <h1 class="glow">Tananaev</h1>
-    <p>
-      <a href="https://github.com/tananaev"><span class="fa-stack">
-        <i class="fa fa-circle fa-stack-2x fa-inverse glow"></i>
-        <i class="fa fa-github fa-stack-1x"></i>
-      </span></a>
-      <a href="https://play.google.com/store/apps/developer?id=Anton+Tananaev"><span class="fa-stack">
-        <i class="fa fa-circle fa-stack-2x fa-inverse glow"></i>
-        <i class="fa fa-android fa-stack-1x"></i>
-      </span></a>
-      <a href="https://apps.apple.com/us/developer/anton-tananaev/id843156982"><span class="fa-stack">
-        <i class="fa fa-circle fa-stack-2x fa-inverse glow"></i>
-        <i class="fa fa-apple fa-stack-1x"></i>
-      </span></a>
-      <a href="https://www.linkedin.com/in/tananaev"><span class="fa-stack">
-        <i class="fa fa-circle fa-stack-2x fa-inverse glow"></i>
-        <i class="fa fa-linkedin fa-stack-1x"></i>
-      </span></a>
-    <p>
-  </div>
+  <a href="https://github.com/tananaev/" class="fullscreen"></a>
 </body>
 </html>
