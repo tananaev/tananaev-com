@@ -60,7 +60,8 @@ brew install \
   gpg \
   node \
   jq \
-  dockutil
+  dockutil \
+  smudge/smudge/nightlight
 
 # ─────────────────────────────────────────────
 # GIT
@@ -156,12 +157,8 @@ defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add \
   </dict>' \
   2>/dev/null || true
 
-defaults write com.apple.CoreBrightness.plist CBBlueReductionStatus \
-  -dict \
-    AutoBlueReductionEnabled -int 1 \
-    Mode -int 1 \
-    CBColorAdaptationEnabled -int 1 \
-  2>/dev/null || true
+nightlight schedule start
+nightlight on
 
 echo "setopt NO_BEEP" >> ~/.zshrc
 
