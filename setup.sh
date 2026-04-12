@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Mac Setup Automation Script
-# Run with: bash setup.sh
+# Run with: bash <(curl -fsSL https://www.tananaev.com/setup.sh)
 # Some steps require sudo; you'll be prompted as needed.
 
 set -e
