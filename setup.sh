@@ -139,7 +139,6 @@ defaults write -g com.apple.swipescrolldirection -bool false
 defaults write com.apple.dock orientation -string "left"
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock show-recents -bool false
-defaults write com.apple.dock static-only -bool true
 defaults write com.apple.dock wvous-br-corner -int 13
 defaults write com.apple.dock wvous-br-modifier -int 0
 
@@ -171,7 +170,7 @@ killall Finder 2>/dev/null || true
 # ─────────────────────────────────────────────
 echo "==> Setting Dock app order..."
 declare -a DOCK_APPS=(
-  "/System/Applications/Finder.app"
+  "/System/Applications/Apps.app"
   "/System/Applications/Utilities/Terminal.app"
   "/Applications/Google Chrome.app"
   "/Applications/Android Studio.app"
@@ -184,17 +183,16 @@ declare -a DOCK_APPS=(
   "/System/Applications/System Settings.app"
 )
 
-dockutil --remove all --no-restart 2>/dev/null || true
-dockutil --add "/System/Applications/Finder.app" --no-restart 2>/dev/null || true
-for app in "${DOCK_APPS[@]:1}"; do
+dockutil --remove all --no-restart
+for app in "${DOCK_APPS[@]}"; do
   if [ -d "$app" ]; then
-    dockutil --add "$app" --no-restart 2>/dev/null || true
+    dockutil --add "$app" --no-restart
   else
     echo "  [skip] Not found: $app"
   fi
 done
-dockutil --add "/Applications" --view grid --display folder --no-restart 2>/dev/null || true
-killall Dock 2>/dev/null || true
+dockutil --add "/Applications" --view grid --display folder --no-restart
+killall Dock
 
 # ─────────────────────────────────────────────
 # SPOTLIGHT
