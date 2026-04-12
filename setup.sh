@@ -145,6 +145,9 @@ defaults write com.apple.dock wvous-br-modifier -int 0
 defaults write com.apple.finder NewWindowTarget -string "PfHm"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 
+defaults write com.apple.Terminal "Default Window Settings" -string "Basic"
+defaults write com.apple.Terminal "Startup Window Settings" -string "Basic"
+
 defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add \
   '<dict>
     <key>InputSourceKind</key><string>Keyboard Layout</string>
