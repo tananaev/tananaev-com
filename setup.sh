@@ -149,13 +149,18 @@ defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 defaults write com.apple.Terminal "Default Window Settings" -string "Basic"
 defaults write com.apple.Terminal "Startup Window Settings" -string "Basic"
 
-defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add \
-  '<dict>
-    <key>InputSourceKind</key><string>Keyboard Layout</string>
-    <key>KeyboardLayout ID</key><integer>19458</integer>
-    <key>KeyboardLayout Name</key><string>Russian - PC</string>
-  </dict>' \
-  2>/dev/null || true
+swift -e '
+import Carbon
+let conditions = NSMutableDictionary()
+conditions.setValue("com.apple.keylayout.RussianWin", forKey: kTISPropertyInputSourceID as String)
+guard let source = (TISCreateInputSourceList(conditions, true).takeRetainedValue() as! [TISInputSource]).first else { exit(1) }
+TISEnableInputSource(source)
+'
+
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 60 \
+  '{"enabled" = 1; "value" = {"parameters" = (32, 49, 262144); "type" = "standard"; }; }'
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 61 \
+  '{"enabled" = 1; "value" = {"parameters" = (32, 49, 786432); "type" = "standard"; }; }'
 
 nightlight schedule start
 nightlight on
