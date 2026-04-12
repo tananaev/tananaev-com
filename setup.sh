@@ -167,6 +167,8 @@ nightlight on
 
 echo "setopt NO_BEEP" >> ~/.zshrc
 
+sudo mdutil -a -i off
+
 killall Dock 2>/dev/null || true
 killall Finder 2>/dev/null || true
 
@@ -200,12 +202,6 @@ dockutil --add "/Applications" --view grid --display folder --no-restart
 killall Dock
 
 # ─────────────────────────────────────────────
-# SPOTLIGHT
-# ─────────────────────────────────────────────
-echo "==> Disabling Spotlight indexing..."
-sudo mdutil -a -i off
-
-# ─────────────────────────────────────────────
 # CHROME
 # ─────────────────────────────────────────────
 echo "==> Configuring Chrome via managed preferences..."
@@ -229,16 +225,18 @@ sudo tee "$CHROME_POLICY_DIR/com.google.Chrome.plist" > /dev/null << 'EOF'
   <array>
     <string>ru</string>
   </array>
-  <!-- Accept-Language header: English + Russian -->
-  <key>ApplicationLocaleValue</key>
-  <string>en-US</string>
-  <!-- Force-install extensions: Bitwarden, uBlock Origin Lite, Empty New Tab, TopCashback -->
+  <!-- Preferred languages: English primary, Russian secondary -->
+  <key>ForcedLanguages</key>
+  <array>
+    <string>en-US</string>
+    <string>ru</string>
+  </array>
+  <!-- Force-install extensions: Bitwarden, uBlock Origin Lite, Empty New Tab -->
   <key>ExtensionInstallForcelist</key>
   <array>
     <string>nngceckbapebfimnlniiiahkandclblb;https://clients2.google.com/service/update2/crx</string>
     <string>ddkjiahejlhfcafbddmgiahcphecmpfh;https://clients2.google.com/service/update2/crx</string>
     <string>dpjamkmjmigaoobjbekmfgabipmfilij;https://clients2.google.com/service/update2/crx</string>
-    <string>lkmpdpkkkeeoiodlnmlichcmfmdjbjic;https://clients2.google.com/service/update2/crx</string>
   </array>
 </dict>
 </plist>
