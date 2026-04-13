@@ -140,8 +140,8 @@ defaults write -g com.apple.swipescrolldirection -bool false
 defaults write com.apple.dock orientation -string "left"
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock show-recents -bool false
-defaults write com.apple.dock wvous-br-corner -int 13
-defaults write com.apple.dock wvous-br-modifier -int 0
+defaults write com.apple.dock wvous-bl-corner -int 13
+defaults write com.apple.dock wvous-bl-modifier -int 0
 
 defaults write com.apple.finder NewWindowTarget -string "PfHm"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
