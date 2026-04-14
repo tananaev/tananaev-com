@@ -64,6 +64,12 @@ brew install \
   dockutil \
   smudge/smudge/nightlight
 
+sudo ln -sfn $(brew --prefix openjdk)/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+
+echo "==> Installing FlutterFire CLI..."
+echo 'export PATH="$PATH":"$HOME/.pub-cache/bin"' >> ~/.zshrc
+dart pub global activate flutterfire_cli
+
 # ─────────────────────────────────────────────
 # GIT
 # ─────────────────────────────────────────────
