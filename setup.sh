@@ -56,6 +56,7 @@ brew install --cask \
 brew install \
   openjdk@17 \
   python \
+  ruby \
   wget \
   maven \
   gpg \
@@ -64,6 +65,8 @@ brew install \
   jq \
   dockutil \
   smudge/smudge/nightlight
+
+echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> ~/.zshrc
 
 sudo ln -sfn $(brew --prefix openjdk)/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 
