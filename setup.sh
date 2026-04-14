@@ -60,15 +60,17 @@ brew install \
   maven \
   gpg \
   node \
+  firebase-cli \
   jq \
   dockutil \
   smudge/smudge/nightlight
 
 sudo ln -sfn $(brew --prefix openjdk)/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 
-echo "==> Installing FlutterFire CLI..."
+echo "==> Installing Flutter tools..."
 echo 'export PATH="$PATH":"$HOME/.pub-cache/bin"' >> ~/.zshrc
 dart pub global activate flutterfire_cli
+sudo gem install xcodeproj cocoapods
 
 # ─────────────────────────────────────────────
 # GIT
