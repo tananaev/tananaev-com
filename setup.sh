@@ -50,6 +50,7 @@ brew install --cask \
   android-studio \
   inkscape \
   spotify \
+  flutter \
   codex
 
 brew install \
