@@ -56,9 +56,10 @@ brew install --cask \
 brew install \
   openjdk@17 \
   python \
-  ruby \
+  cocoapods \
   wget \
   maven \
+  cmake \
   gpg \
   node \
   firebase-cli \
@@ -66,14 +67,12 @@ brew install \
   dockutil \
   smudge/smudge/nightlight
 
-echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> ~/.zshrc
-
 sudo ln -sfn $(brew --prefix openjdk)/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 
 echo "==> Installing Flutter tools..."
 echo 'export PATH="$PATH":"$HOME/.pub-cache/bin"' >> ~/.zshrc
 dart pub global activate flutterfire_cli
-sudo gem install xcodeproj cocoapods
+sudo gem install xcodeproj
 
 # ─────────────────────────────────────────────
 # GIT
