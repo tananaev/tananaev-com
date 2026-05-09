@@ -57,6 +57,7 @@ brew install \
   openjdk@17 \
   python \
   cocoapods \
+  gh \
   wget \
   maven \
   cmake \
